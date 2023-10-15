@@ -11,15 +11,19 @@ public class InvoiceGeneratorTest {
     }
 
     @Test
-    public void testCalculateTotalFare() {
+    public void testGenerateInvoice() {
         Ride ride1 = new Ride(10, 15); // 10 km, 15 minutes
         Ride ride2 = new Ride(5, 10);  // 5 km, 10 minutes
-        double expectedTotalFare = ride1.calculateFare() + ride2.calculateFare();
+        double totalFare = ride1.calculateFare() + ride2.calculateFare();
+        double averageFare = totalFare / 2; // Two rides
 
         invoiceGenerator.addRide(ride1);
         invoiceGenerator.addRide(ride2);
 
-        double totalFare = invoiceGenerator.calculateTotalFare();
-        assertEquals(expectedTotalFare, totalFare);
+        Invoice invoice = invoiceGenerator.generateInvoice();
+
+        assertEquals(2, invoice.getTotalRides());
+        assertEquals(totalFare, invoice.getTotalFare());
+        assertEquals(averageFare, invoice.getAverageFare());
     }
 }
