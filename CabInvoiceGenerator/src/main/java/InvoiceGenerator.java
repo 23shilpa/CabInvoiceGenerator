@@ -8,12 +8,17 @@ public class InvoiceGenerator {
         rides.add(ride);
     }
 
-    public double calculateTotalFare() {
+    public Invoice generateInvoice() {
+        int totalRides = rides.size();
         double totalFare = 0;
+
         for (Ride ride : rides) {
             totalFare += ride.calculateFare();
         }
-        return totalFare;
+
+        double averageFare = totalFare / totalRides;
+
+        return new Invoice(totalRides, totalFare, averageFare);
     }
 
     public static void main(String[] args) {
@@ -25,7 +30,9 @@ public class InvoiceGenerator {
         invoiceGenerator.addRide(ride1);
         invoiceGenerator.addRide(ride2);
 
-        double totalFare = invoiceGenerator.calculateTotalFare();
-        System.out.println("Total Fare: Rs " + totalFare);
+        Invoice invoice = invoiceGenerator.generateInvoice();
+        System.out.println("Total Rides: " + invoice.getTotalRides());
+        System.out.println("Total Fare: Rs " + invoice.getTotalFare());
+        System.out.println("Average Fare Per Ride: Rs " + invoice.getAverageFare());
     }
 }

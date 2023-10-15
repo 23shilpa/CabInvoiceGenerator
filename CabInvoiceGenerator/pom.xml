@@ -20,6 +20,31 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.adobe.ride</groupId>
+            <artifactId>ride-core</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.ride</groupId>
+            <artifactId>ride-parent</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.kolotaev</groupId>
+            <artifactId>ride_2.12</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.kolotaev</groupId>
+            <artifactId>ride_2.13</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.ride</groupId>
+            <artifactId>ride-model-util</artifactId>
+            <version>2.0.0</version>
+        </dependency>
     </dependencies>
 
 </project>
